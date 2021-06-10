@@ -65,4 +65,5 @@ public class WeaponAim : MonoBehaviour
             CanShoot = false;
         }
     }
+
 }
