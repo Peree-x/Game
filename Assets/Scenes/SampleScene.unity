@@ -634,7 +634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210946408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f813542404fe43a4ea5206a0a64e3782, type: 3}
   m_Name: 
@@ -671,9 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f15e488f5f857745ae578d02b682e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlockBullet: {fileID: 0}
+  GlockBullet: {fileID: 6763343487547179117, guid: bf6b11eab9c8ce646bacbc224deb969b, type: 3}
   inputDelay: 0.3
-  DEBUGGING: 0
+  DEBUGGING: 1
   DEBUGGINGERROR: 1
 --- !u!1 &1247279736
 GameObject:

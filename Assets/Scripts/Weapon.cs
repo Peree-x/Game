@@ -15,27 +15,19 @@ public class Weapon : MonoBehaviour
     public bool DEBUGGINGERROR;
     string[] Weapons;
     string CurrentlyActiveWeapon;
+    //dobi trenutni scale.x od playera
 
-    void Awake()
+    private void Awake()
     {
+        Aim = GameObject.Find("Aim"); //Aim
         check();
         //pronadji Bullet, BulletAIm (njegovo dete) i animaciju ako postoji
-        Aim = GameObject.Find("Aim"); //Aim
         BulletAim = GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim");//treba da se ponovi u update
         //pronadji bullet tako sto ces da napravis listu svakog gun i staviti bullet koji koristi pa iz te liste asistirati bullet
         bullet();
         AnimCheck();
-        
+        //uzmi scale.x od playera
     }
-    private void Start()
-    {
-        for(int i = 0;i < Aim.transform.childCount; i++)
-        {
-            Weapons[i] = Aim.transform.GetChild(i).name;
-            Debuging(Aim.transform.GetChild(i).name);
-        }
-    }
-
     void Update()
     {
         check();
@@ -43,21 +35,23 @@ public class Weapon : MonoBehaviour
         {
             Attack();
         }
+        //ako je scale.x od playera drugaciji od pribelezenog onda aktiviraj rotate(GameObject koji treba da se rotira);
     }
-    void Attack()
+    void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
-        if(canAttack is true)
+        if(canAttack == true)
         {
-            SetInputDelay();
+
             Anim.SetBool("MouseClick", true);
-            Instantiate(Bullet, BulletAim.position, BulletAim.rotation);
+            Instantiate(Bullet, BulletAim.position, BulletAim.rotation); //ovo je samo za gun treba da se prebaci u weapon da bi svaki put bilo drugacije
+            SetInputDelay();//delay ce za svaki weapon biti isti, treba se prebaciti u weapon da bi mogao svaki da se podesava
         }
         else
         {
             Debuging("CanAttack is false");
         }
     }
-    void check()
+    void check() //proverava da li je weapon u ruci i ako jeste onda proverava koj je u pitanju i postavlja da moze da udara
     {
         for (int i = 0; i < Aim.transform.childCount; i++)
         {
@@ -72,7 +66,7 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    void bullet()
+    void bullet() //proveri koj bullet se koristi
     {
         switch (CurrentlyActiveWeapon)
         {
@@ -84,20 +78,36 @@ public class Weapon : MonoBehaviour
                 break;
         }
     }
-    void AnimCheck()
+    void AnimCheck() //proveri da li animacija postoji i ako postoji onda je dodeljuje u anim
     {
         if (GameObject.Find(CurrentlyActiveWeapon).GetComponent<Animator>() != null)
         {
             Anim = GameObject.Find(CurrentlyActiveWeapon).GetComponent<Animator>();
         }
+        else
+        {
+            Debuging("Animation does not exist/script weapon");
+        }
     }
-    void SetInputDelay()
+    void GetWeapons() //not in use
+    {
+        for(int i = 0;i < Aim.transform.childCount; i++)
+        {
+            Weapons[i] = Aim.transform.GetChild(i).name;
+            Debuging(Aim.transform.GetChild(i).name);
+        }
+    }
+    void Rotate(GameObject ToRotate)
+    {
+        //rotiraj tako sto ces da pomnozis scale.x sa -1 
+    }
+    void SetInputDelay() //primeni delay
     {
         canAttack = false;
         Invoke("ClearInputDelay", inputDelay);
     }
 
-    void ClearInputDelay()
+    void ClearInputDelay()//primenjen delay posle izvesnog vremena menja funkciju
     {
         canAttack = true;
     }
