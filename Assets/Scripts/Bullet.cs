@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D RB;
+
+    public Transform bulletaim;
     void Start()
     {
         RB.velocity = transform.right * speed;

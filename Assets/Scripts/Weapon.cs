@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     public bool DEBUGGINGERROR;
     string[] Weapons;
     string CurrentlyActiveWeapon;
-    //dobi trenutni scale.x od playera
+    float playerx;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
         //pronadji bullet tako sto ces da napravis listu svakog gun i staviti bullet koji koristi pa iz te liste asistirati bullet
         bullet();
         AnimCheck();
-        //uzmi scale.x od playera
+        playerx = transform.localScale.x;
     }
     void Update()
     {
@@ -36,6 +36,11 @@ public class Weapon : MonoBehaviour
             Attack();
         }
         //ako je scale.x od playera drugaciji od pribelezenog onda aktiviraj rotate(GameObject koji treba da se rotira);
+        if(transform.localScale.x != playerx)
+        {
+            Rotate(BulletAim.transform.gameObject);//namesti da se ocita objekat koji treba da se rotira
+        }
+        Debug.Log(playerx);
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
@@ -99,7 +104,10 @@ public class Weapon : MonoBehaviour
     }
     void Rotate(GameObject ToRotate)
     {
-        //rotiraj tako sto ces da pomnozis scale.x sa -1 
+        Debuging("player se rotiorao");
+        //rotiraj tako sto ces da pomnozis scale.x sa -1
+        ToRotate.transform.localScale= new Vector3(transform.localScale.x,ToRotate.transform.localScale.y,ToRotate.transform.localScale.z);
+        playerx = transform.localScale.x;
     }
     void SetInputDelay() //primeni delay
     {
