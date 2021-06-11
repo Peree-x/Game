@@ -39,8 +39,9 @@ public class Weapon : MonoBehaviour
         if(transform.localScale.x != playerx)
         {
             Rotate(BulletAim.transform.gameObject);//namesti da se ocita objekat koji treba da se rotira
+            Debuging("player trazi rotaciju");
         }
-        Debug.Log(playerx);
+        Debug.Log(playerx +""+ transform.localScale.x);
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
@@ -106,7 +107,19 @@ public class Weapon : MonoBehaviour
     {
         Debuging("player se rotiorao");
         //rotiraj tako sto ces da pomnozis scale.x sa -1
-        ToRotate.transform.localScale= new Vector3(transform.localScale.x,ToRotate.transform.localScale.y,ToRotate.transform.localScale.z);
+        if(ToRotate.transform.rotation.z is -1)
+        {
+            ToRotate.transform.rotation = Quaternion.Euler(ToRotate.transform.rotation.x,ToRotate.transform.rotation.y,360);
+            Debuging("rotiran na 0"+ ToRotate.transform.rotation.z);
+        }
+        else
+        Debuging("nije nego"+ ToRotate.transform.rotation.z);
+            if(ToRotate.transform.rotation.z == 0 || ToRotate.transform.rotation.z == 360)
+            {
+                ToRotate.transform.rotation = Quaternion.Euler(ToRotate.transform.rotation.x,ToRotate.transform.rotation.y, 180);
+                Debuging("rotiran na 180"+ ToRotate.transform.rotation.z);
+            }
+        Debuging("" + ToRotate.transform.rotation.z);
         playerx = transform.localScale.x;
     }
     void SetInputDelay() //primeni delay
