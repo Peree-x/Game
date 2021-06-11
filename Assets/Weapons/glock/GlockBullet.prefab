@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6763343487547179113}
   - component: {fileID: 6763343487547179112}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: GlockBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   RB: {fileID: 6763343487547179113}
+  DestroyTimer: 0
+  glockS: {fileID: 5744434795793387741, guid: a0ce9504f6d0fd24ea0581aaa00934a1, type: 3}
 --- !u!50 &6763343487547179113
 Rigidbody2D:
   serializedVersion: 4

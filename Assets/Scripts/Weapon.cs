@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Weapon : MonoBehaviour
 {
     private GameObject Bullet;
@@ -17,6 +18,7 @@ public class Weapon : MonoBehaviour
     string CurrentlyActiveWeapon;
     float playerx;
     private bool BulletAimExist;
+    [SerializeField] private Glock GlockScr;
 
     private void Awake()
     {
@@ -64,8 +66,16 @@ public class Weapon : MonoBehaviour
         {
 
             Anim.SetBool("MouseClick", true);
-            Instantiate(Bullet, BulletAim.position, BulletAim.rotation); //ovo je samo za gun treba da se prebaci u weapon da bi svaki put bilo drugacije
-            SetInputDelay();//delay ce za svaki weapon biti isti, treba se prebaciti u weapon da bi mogao svaki da se podesava
+            
+            switch(CurrentlyActiveWeapon)
+            {
+                case "Glock":
+                GlockScr.InstantiateBullet(BulletAim);
+                SetInputDelay(GlockScr.speedOfShooting);
+                break;
+            } 
+            //ovo je samo za gun treba da se prebaci u weapon da bi svaki put bilo drugacije
+            //delay ce za svaki weapon biti isti, treba se prebaciti u weapon da bi mogao svaki da se podesava
         }
         else
         {
@@ -136,10 +146,10 @@ public class Weapon : MonoBehaviour
             break;
         }
     }
-    void SetInputDelay() //primeni delay
+    void SetInputDelay(float Delay) //primeni delay
     {
         canAttack = false;
-        Invoke("ClearInputDelay", inputDelay);
+        Invoke("ClearInputDelay", Delay);
         Debuging("delay se aktivirao");
     }
 

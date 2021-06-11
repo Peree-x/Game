@@ -1,0 +1,610 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1052; Version 2009; 64bit' Language: 'en' Physical Memory: 16375 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+X:\Program files\Unity\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+X:/Program files/unity project/New Unity Project
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+65104
+Successfully changed project path to: X:/Program files/unity project/New Unity Project
+X:/Program files/unity project/New Unity Project
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 76.30 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path X:/Program files/Unity/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path X:/Program files/unity project/New Unity Project/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon (TM) R9 380 Series (ID=0x6939)
+    Vendor:   
+    VRAM:     4070 MB
+    Driver:   27.20.21003.8013
+Initialize mono
+Mono path[0] = 'X:/Program files/Unity/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'X:/Program files/Unity/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'X:/Program files/Unity/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56060
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: X:/Program files/Unity/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: X:/Program files/Unity/2020.3.11f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003297 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 72.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.858 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005793 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 70.96 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.914 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2132 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 96.1 MB.
+System memory in use after: 96.0 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2566.
+Total: 3.749500 ms (FindLiveObjects: 0.284000 ms CreateObjectMapping: 0.130600 ms MarkObjects: 3.112900 ms  DeleteObjects: 0.219000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Weapons/glock/Glock 1.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock 1.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eff020fd287fb4e3e61eeaba0ef4924') in 0.181423 seconds
+  Import took 0.186370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.906681 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4e3574566d90267b03d42e816c7dd41') in 0.033900 seconds
+  Import took 0.038877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010831 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4e3574566d90267b03d42e816c7dd41') in 0.014836 seconds
+  Import took 0.019852 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008731 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.759 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.7 MB.
+System memory in use after: 97.7 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2577.
+Total: 3.590200 ms (FindLiveObjects: 0.263200 ms CreateObjectMapping: 0.130700 ms MarkObjects: 3.022500 ms  DeleteObjects: 0.171800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.578150 seconds.
+  path: Assets/Weapons/glock/GlockBullet.png
+  artifactKey: Guid(4a438f0264bc65b4ba1f53d40bc019fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/GlockBullet.png using Guid(4a438f0264bc65b4ba1f53d40bc019fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ed5e304f21aaecf54932cb5d3b811b8') in 0.142432 seconds
+  Import took 0.147193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.464384 seconds.
+  path: Assets/Weapons/glock/GlockBullet.prefab
+  artifactKey: Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/GlockBullet.prefab using Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc4d2400efc93164cec0614f53731913') in 0.041341 seconds
+  Import took 0.057577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.519410 seconds.
+  path: Assets/Scripts/Bullet.cs
+  artifactKey: Guid(106346c9a9e665542ab9a67dbe98593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Bullet.cs using Guid(106346c9a9e665542ab9a67dbe98593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0e4a5b017d3b1519be01dded40a4dfe') in 0.026426 seconds
+  Import took 0.030996 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.039325 seconds.
+  path: Assets/Scripts/GlockBullet.cs
+  artifactKey: Guid(106346c9a9e665542ab9a67dbe98593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GlockBullet.cs using Guid(106346c9a9e665542ab9a67dbe98593f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8be55e66c873b74087c926287e906c3d') in 0.004000 seconds
+  Import took 0.011406 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006205 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.704 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.8 MB.
+System memory in use after: 97.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2584.
+Total: 3.721000 ms (FindLiveObjects: 0.299400 ms CreateObjectMapping: 0.138700 ms MarkObjects: 3.107200 ms  DeleteObjects: 0.173500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005967 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.660 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.68 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.8 MB.
+System memory in use after: 97.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2589.
+Total: 3.708700 ms (FindLiveObjects: 0.298800 ms CreateObjectMapping: 0.139600 ms MarkObjects: 3.090800 ms  DeleteObjects: 0.177100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.849509 seconds.
+  path: Assets/Scripts/Bullet.cs
+  artifactKey: Guid(f362c8d3900a02f41adf50cec0c203ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Bullet.cs using Guid(f362c8d3900a02f41adf50cec0c203ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01e1a176835a18a5c5b145a3933ad5b6') in 0.007238 seconds
+  Import took 0.012038 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006085 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.635 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.8 MB.
+System memory in use after: 97.8 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2592.
+Total: 3.645900 ms (FindLiveObjects: 0.299000 ms CreateObjectMapping: 0.134400 ms MarkObjects: 3.041200 ms  DeleteObjects: 0.168600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.242168 seconds.
+  path: Assets/Weapons/glock/GlockBullet.prefab
+  artifactKey: Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/GlockBullet.prefab using Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8031709e88945f07c3b3de49a97ad99c') in 0.078348 seconds
+  Import took 0.083248 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006341 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.661 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2597.
+Total: 3.759300 ms (FindLiveObjects: 0.272900 ms CreateObjectMapping: 0.128700 ms MarkObjects: 3.189000 ms  DeleteObjects: 0.166700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006749 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.669 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2601.
+Total: 3.668600 ms (FindLiveObjects: 0.303500 ms CreateObjectMapping: 0.131000 ms MarkObjects: 3.049300 ms  DeleteObjects: 0.182300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006489 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.653 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2605.
+Total: 3.649500 ms (FindLiveObjects: 0.277900 ms CreateObjectMapping: 0.133000 ms MarkObjects: 3.063500 ms  DeleteObjects: 0.173200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006490 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.751 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2609.
+Total: 3.924200 ms (FindLiveObjects: 0.354100 ms CreateObjectMapping: 0.144900 ms MarkObjects: 3.220500 ms  DeleteObjects: 0.202300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 3103.934134 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5fc8ac2c984a95cc7aa0f5bf6b2863d') in 0.088420 seconds
+  Import took 0.093393 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Weapons/glock/GlockBullet.prefab
+  artifactKey: Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/GlockBullet.prefab using Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5f77617e7eaf56707f9888e7102e8e7') in 0.049168 seconds
+  Import took 0.053340 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006035 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.646 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2614.
+Total: 3.569400 ms (FindLiveObjects: 0.268500 ms CreateObjectMapping: 0.136900 ms MarkObjects: 2.954100 ms  DeleteObjects: 0.208000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005788 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.700 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2618.
+Total: 3.811500 ms (FindLiveObjects: 0.278000 ms CreateObjectMapping: 0.144600 ms MarkObjects: 3.208000 ms  DeleteObjects: 0.178500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006324 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.683 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2622.
+Total: 4.022100 ms (FindLiveObjects: 0.279200 ms CreateObjectMapping: 0.190000 ms MarkObjects: 3.374900 ms  DeleteObjects: 0.175900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005841 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.630 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2626.
+Total: 3.547500 ms (FindLiveObjects: 0.294900 ms CreateObjectMapping: 0.138000 ms MarkObjects: 2.926400 ms  DeleteObjects: 0.186400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005891 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.605 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.9 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2630.
+Total: 3.844200 ms (FindLiveObjects: 0.272000 ms CreateObjectMapping: 0.134400 ms MarkObjects: 3.253500 ms  DeleteObjects: 0.181900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006073 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.612 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.68 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.0 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2634.
+Total: 3.879500 ms (FindLiveObjects: 0.302300 ms CreateObjectMapping: 0.146300 ms MarkObjects: 3.219300 ms  DeleteObjects: 0.209700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006089 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.619 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.0 MB.
+System memory in use after: 97.9 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2638.
+Total: 3.772900 ms (FindLiveObjects: 0.279600 ms CreateObjectMapping: 0.136100 ms MarkObjects: 3.176500 ms  DeleteObjects: 0.178700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2958.203876 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15de8b8ad86c3de2c83fa134141329a9') in 0.085012 seconds
+  Import took 0.090203 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006652 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.616 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.0 MB.
+System memory in use after: 98.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2643.
+Total: 4.110800 ms (FindLiveObjects: 0.298300 ms CreateObjectMapping: 0.138400 ms MarkObjects: 3.501900 ms  DeleteObjects: 0.169700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006141 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.701 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.78 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.0 MB.
+System memory in use after: 98.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2647.
+Total: 4.599000 ms (FindLiveObjects: 0.296900 ms CreateObjectMapping: 0.134600 ms MarkObjects: 3.843100 ms  DeleteObjects: 0.321600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 74.464578 seconds.
+  path: Assets/Weapons/glock/GlockBullet.prefab
+  artifactKey: Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/GlockBullet.prefab using Guid(bf6b11eab9c8ce646bacbc224deb969b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22952590695a113fc6f5da3f3a06c48c') in 0.097603 seconds
+  Import took 0.102632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.702344 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecff0f9adaa32dc3a48f67e18a8a9fb0') in 0.017655 seconds
+  Import took 0.022688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020087 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecff0f9adaa32dc3a48f67e18a8a9fb0') in 0.015284 seconds
+  Import took 0.020476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.408596 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '450a14710ad20e9140baf0a80963698d') in 0.014549 seconds
+  Import took 0.019563 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023500 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '450a14710ad20e9140baf0a80963698d') in 0.014854 seconds
+  Import took 0.020130 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.621930 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5427da762f87869399f9747e847949fc') in 0.014829 seconds
+  Import took 0.019758 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024428 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5427da762f87869399f9747e847949fc') in 0.014710 seconds
+  Import took 0.020113 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006055 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.746 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.0 MB.
+System memory in use after: 98.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2652.
+Total: 3.826500 ms (FindLiveObjects: 0.327800 ms CreateObjectMapping: 0.142300 ms MarkObjects: 3.190900 ms  DeleteObjects: 0.162800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.744066 seconds.
+  path: Assets/Weapons/glock/Glock.prefab
+  artifactKey: Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/glock/Glock.prefab using Guid(a0ce9504f6d0fd24ea0581aaa00934a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b1e7ed26bfce358c358a7544d3ecf11') in 0.111864 seconds
+  Import took 0.116846 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
