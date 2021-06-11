@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlockBullet: {fileID: 6763343487547179117, guid: bf6b11eab9c8ce646bacbc224deb969b, type: 3}
   inputDelay: 0.3
-  DEBUGGING: 1
+  DEBUGGING: 0
   DEBUGGINGERROR: 1
 --- !u!1 &1247279736
 GameObject:

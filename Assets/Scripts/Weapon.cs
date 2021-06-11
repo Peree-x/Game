@@ -16,13 +16,17 @@ public class Weapon : MonoBehaviour
     string[] Weapons;
     string CurrentlyActiveWeapon;
     float playerx;
+    private bool BulletAimExist;
 
     private void Awake()
     {
         Aim = GameObject.Find("Aim"); //Aim
         check();
         //pronadji Bullet, BulletAIm (njegovo dete) i animaciju ako postoji
-        BulletAim = GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim");//treba da se ponovi u update
+        if (GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim") != null)
+        {
+            BulletAim = GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim");//treba da se ponovi u update
+        }
         //pronadji bullet tako sto ces da napravis listu svakog gun i staviti bullet koji koristi pa iz te liste asistirati bullet
         bullet();
         AnimCheck();
@@ -38,10 +42,21 @@ public class Weapon : MonoBehaviour
         //ako je scale.x od playera drugaciji od pribelezenog onda aktiviraj rotate(GameObject koji treba da se rotira);
         if(transform.localScale.x != playerx)
         {
-            Rotate(BulletAim.transform.gameObject);//namesti da se ocita objekat koji treba da se rotira
+            playerx = transform.localScale.x;
             Debuging("player trazi rotaciju");
+            if(BulletAim != null)
+            {
+            Rotate(GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim").gameObject);//namesti da se ocita objekat koji treba da se rotira
+            }
         }
-        Debug.Log(playerx +""+ transform.localScale.x);
+        if (GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim") != null)
+        {
+            BulletAimExist = true;
+        }
+        else
+        {
+            BulletAimExist = false;
+        }
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
@@ -61,10 +76,11 @@ public class Weapon : MonoBehaviour
     {
         for (int i = 0; i < Aim.transform.childCount; i++)
         {
-            if (Aim.transform.GetChild(i).gameObject.activeSelf == true)
+            if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
             {
                 canAttack = true;
                 CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
+                break;
             }
             else //ovo pravi bugove ako ih ima vise smisli bolji nacin
             {
@@ -83,6 +99,7 @@ public class Weapon : MonoBehaviour
                 //sword ili nije nista
                 break;
         }
+
     }
     void AnimCheck() //proveri da li animacija postoji i ako postoji onda je dodeljuje u anim
     {
@@ -107,25 +124,23 @@ public class Weapon : MonoBehaviour
     {
         Debuging("player se rotiorao");
         //rotiraj tako sto ces da pomnozis scale.x sa -1
-        if(ToRotate.transform.rotation.z is -1)
+        switch(ToRotate.transform.eulerAngles.z)
         {
-            ToRotate.transform.rotation = Quaternion.Euler(ToRotate.transform.rotation.x,ToRotate.transform.rotation.y,360);
-            Debuging("rotiran na 0"+ ToRotate.transform.rotation.z);
+            case 180: 
+                ToRotate.transform.rotation = Quaternion.Euler(0,0,0);
+                Debuging("Ugao od 0 stepeni je postavljen na bulletaim");
+            break;
+            case 0: 
+                ToRotate.transform.rotation = Quaternion.Euler(0,0,180);
+                Debuging("Ugao od 180 stepeni je postavljen na bulletaim");
+            break;
         }
-        else
-        Debuging("nije nego"+ ToRotate.transform.rotation.z);
-            if(ToRotate.transform.rotation.z == 0 || ToRotate.transform.rotation.z == 360)
-            {
-                ToRotate.transform.rotation = Quaternion.Euler(ToRotate.transform.rotation.x,ToRotate.transform.rotation.y, 180);
-                Debuging("rotiran na 180"+ ToRotate.transform.rotation.z);
-            }
-        Debuging("" + ToRotate.transform.rotation.z);
-        playerx = transform.localScale.x;
     }
     void SetInputDelay() //primeni delay
     {
         canAttack = false;
         Invoke("ClearInputDelay", inputDelay);
+        Debuging("delay se aktivirao");
     }
 
     void ClearInputDelay()//primenjen delay posle izvesnog vremena menja funkciju
