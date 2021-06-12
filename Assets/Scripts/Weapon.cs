@@ -5,33 +5,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private GameObject Bullet;
-    public GameObject GlockBullet;
-    private Transform BulletAim;
-    public float inputDelay = 0.3f;
-    private Animator Anim;
-    bool canAttack;
-    private GameObject Aim;
-    public bool DEBUGGING;
-    public bool DEBUGGINGERROR;
-    string[] Weapons;
-    string CurrentlyActiveWeapon;
-    float playerx;
-    private bool BulletAimExist;
-    [SerializeField] private Glock GlockScr;
-
+    [SerializeField][InspectorName("GlockData")] private ItemWeapon Glock;
+    [SerializeField] private GameObject Aim;
+    [SerializeField] private bool DEBUGGING;
+    [SerializeField] private bool DEBUGGINGERROR;
+    private float playerx;
+    private bool delayActive = false;
+    private ItemWeapon scriptableObject;
+    private bool canAttack;
     private void Awake()
     {
-        Aim = GameObject.Find("Aim"); //Aim
         check();
-        //pronadji Bullet, BulletAIm (njegovo dete) i animaciju ako postoji
-        if (GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim") != null)
-        {
-            BulletAim = GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim");//treba da se ponovi u update
-        }
-        //pronadji bullet tako sto ces da napravis listu svakog gun i staviti bullet koji koristi pa iz te liste asistirati bullet
-        bullet();
-        AnimCheck();
         playerx = transform.localScale.x;
     }
     void Update()
@@ -41,41 +25,32 @@ public class Weapon : MonoBehaviour
         {
             Attack();
         }
-        //ako je scale.x od playera drugaciji od pribelezenog onda aktiviraj rotate(GameObject koji treba da se rotira);
-        if(transform.localScale.x != playerx)
+        if(transform.localScale.x != playerx) //proverava da li se rotacija playera promenila i ako jeste onda rotira bulletAim
         {
             playerx = transform.localScale.x;
             Debuging("player trazi rotaciju");
-            if(BulletAim != null)
+            if(scriptableObject.hasBullet is true)
             {
-            Rotate(GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim").gameObject);//namesti da se ocita objekat koji treba da se rotira
+            Rotate(scriptableObject.BulletAim.gameObject);//namesti da se ocita objekat koji treba da se rotira
             }
         }
-        if (GameObject.Find(CurrentlyActiveWeapon).transform.Find("BulletAim") != null)
-        {
-            BulletAimExist = true;
-        }
-        else
-        {
-            BulletAimExist = false;
-        }
+        Debug.Log(""+Glock.name);
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
         if(canAttack == true)
         {
-
-            Anim.SetBool("MouseClick", true);
-            
-            switch(CurrentlyActiveWeapon)
+            scriptableObject.weapon.GetComponent<Animator>().SetBool("MouseClick", true);
+            switch (scriptableObject.hasBullet) 
             {
-                case "Glock":
-                GlockScr.InstantiateBullet(BulletAim);
-                SetInputDelay(GlockScr.speedOfShooting);
+                case true:
+                    InstantiateBullet(scriptableObject.Bullet);
+                    SetInputDelay(scriptableObject.speedOfShooting);
                 break;
-            } 
-            //ovo je samo za gun treba da se prebaci u weapon da bi svaki put bilo drugacije
-            //delay ce za svaki weapon biti isti, treba se prebaciti u weapon da bi mogao svaki da se podesava
+                case false:
+                    //udari macem
+                break;
+            }//ako je hasbullet true pucace bullet a ako nije onda ce udariti macem
         }
         else
         {
@@ -88,46 +63,18 @@ public class Weapon : MonoBehaviour
         {
             if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
             {
-                canAttack = true;
-                CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
+                scriptableObject = Resources.Load<ItemWeapon>(Aim.transform.GetChild(i).name);
+                
+                if (delayActive != true) //ako delay nije trenutno aktivan onda je canattack true
+                {
+                    canAttack = true;
+                }
                 break;
             }
             else //ovo pravi bugove ako ih ima vise smisli bolji nacin
             {
                 canAttack = false;
             }
-        }
-    }
-    void bullet() //proveri koj bullet se koristi
-    {
-        switch (CurrentlyActiveWeapon)
-        {
-            case "Glock":
-                Bullet = GlockBullet;
-                break;
-            case "0":
-                //sword ili nije nista
-                break;
-        }
-
-    }
-    void AnimCheck() //proveri da li animacija postoji i ako postoji onda je dodeljuje u anim
-    {
-        if (GameObject.Find(CurrentlyActiveWeapon).GetComponent<Animator>() != null)
-        {
-            Anim = GameObject.Find(CurrentlyActiveWeapon).GetComponent<Animator>();
-        }
-        else
-        {
-            Debuging("Animation does not exist/script weapon");
-        }
-    }
-    void GetWeapons() //not in use
-    {
-        for(int i = 0;i < Aim.transform.childCount; i++)
-        {
-            Weapons[i] = Aim.transform.GetChild(i).name;
-            Debuging(Aim.transform.GetChild(i).name);
         }
     }
     void Rotate(GameObject ToRotate)
@@ -146,16 +93,22 @@ public class Weapon : MonoBehaviour
             break;
         }
     }
+    private void InstantiateBullet(GameObject Bullet)
+    {
+        Instantiate(Bullet.transform, scriptableObject.BulletAim.transform.position, scriptableObject.BulletAim.transform.rotation);
+    }
     void SetInputDelay(float Delay) //primeni delay
     {
         canAttack = false;
         Invoke("ClearInputDelay", Delay);
         Debuging("delay se aktivirao");
+        delayActive = true;
     }
 
     void ClearInputDelay()//primenjen delay posle izvesnog vremena menja funkciju
     {
         canAttack = true;
+        delayActive = false;
     }
     void Debuging(string obavestava)
     {

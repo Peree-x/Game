@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GlockBullet : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody2D RB;
-    public float DestroyTimer;
-    [SerializeField] private Glock glockS;
+    [SerializeField] private Rigidbody2D RB;
+    [SerializeField] private ItemWeapon Glock;
     void Start()
     {
-        RB.velocity = transform.right * speed;
-        Destroy(gameObject, DestroyTimer);
-    }
-    void Update()
-    {
-        DestroyTimer = glockS.DestroyAfter;
+        Glock.Shot(RB);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

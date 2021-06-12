@@ -97,10 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106346c9a9e665542ab9a67dbe98593f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
   RB: {fileID: 6763343487547179113}
-  DestroyTimer: 0
-  glockS: {fileID: 5744434795793387741, guid: a0ce9504f6d0fd24ea0581aaa00934a1, type: 3}
+  Glock: {fileID: 11400000, guid: cbfe2de7209f3c947a8b9883a0432b1f, type: 2}
 --- !u!50 &6763343487547179113
 Rigidbody2D:
   serializedVersion: 4
