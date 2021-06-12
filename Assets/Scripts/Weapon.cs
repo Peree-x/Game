@@ -11,8 +11,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool DEBUGGINGERROR;
     private float playerx;
     private bool delayActive = false;
-    private ItemWeapon scriptableObject;
+    //private ItemWeapon scriptableObject;
     private bool canAttack;
+    private string CurrentlyActiveWeapon;
+    [SerializeField] private WeaponItemManager WIM;
+    private ItemWeapon scriptableObject;
     private void Awake()
     {
         check();
@@ -20,6 +23,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
+        scriptableObject = WIM.Get(CurrentlyActiveWeapon);
         check();
         if (Input.GetMouseButtonDown(0))
         {
@@ -29,23 +33,23 @@ public class Weapon : MonoBehaviour
         {
             playerx = transform.localScale.x;
             Debuging("player trazi rotaciju");
-            if(scriptableObject.hasBullet is true)
+            if(WIM.Get(CurrentlyActiveWeapon).hasBullet is true)
             {
-            Rotate(scriptableObject.BulletAim.gameObject);//namesti da se ocita objekat koji treba da se rotira
+            Rotate(WIM.Get(CurrentlyActiveWeapon).BulletAim.gameObject);//namesti da se ocita objekat koji treba da se rotira
             }
         }
-        Debug.Log(""+Glock.name);
+        Debug.Log(""+scriptableObject.name);
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
         if(canAttack == true)
         {
-            scriptableObject.weapon.GetComponent<Animator>().SetBool("MouseClick", true);
-            switch (scriptableObject.hasBullet) 
+            WIM.Get(CurrentlyActiveWeapon).weapon.GetComponent<Animator>().SetBool("MouseClick", true);
+            switch (WIM.Get(CurrentlyActiveWeapon).hasBullet) 
             {
                 case true:
-                    InstantiateBullet(scriptableObject.Bullet);
-                    SetInputDelay(scriptableObject.speedOfShooting);
+                    InstantiateBullet(WIM.Get(CurrentlyActiveWeapon).Bullet);
+                    SetInputDelay(WIM.Get(CurrentlyActiveWeapon).speedOfShooting);
                 break;
                 case false:
                     //udari macem
@@ -63,7 +67,7 @@ public class Weapon : MonoBehaviour
         {
             if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
             {
-                scriptableObject = Resources.Load<ItemWeapon>(Aim.transform.GetChild(i).name);
+                CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
                 
                 if (delayActive != true) //ako delay nije trenutno aktivan onda je canattack true
                 {
@@ -95,7 +99,7 @@ public class Weapon : MonoBehaviour
     }
     private void InstantiateBullet(GameObject Bullet)
     {
-        Instantiate(Bullet.transform, scriptableObject.BulletAim.transform.position, scriptableObject.BulletAim.transform.rotation);
+        Instantiate(Bullet.transform, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.position, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.rotation);
     }
     void SetInputDelay(float Delay) //primeni delay
     {
