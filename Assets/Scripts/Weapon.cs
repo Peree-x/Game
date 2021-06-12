@@ -9,13 +9,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject Aim;
     [SerializeField] private bool DEBUGGING;
     [SerializeField] private bool DEBUGGINGERROR;
-    private float playerx;
-    private bool delayActive = false;
-    //private ItemWeapon scriptableObject;
-    private bool canAttack;
-    private string CurrentlyActiveWeapon;
     [SerializeField] private WeaponItemManager WIM;
     private ItemWeapon scriptableObject;
+    private float playerx;
+    private bool delayActive = false;
+    private bool canAttack;
+    private string CurrentlyActiveWeapon;
+    private Animator AnimationP;
     private void Awake()
     {
         check();
@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         scriptableObject = WIM.Get(CurrentlyActiveWeapon);
-        check();
+        AnimationP = scriptableObject.weapon.GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
@@ -33,23 +33,24 @@ public class Weapon : MonoBehaviour
         {
             playerx = transform.localScale.x;
             Debuging("player trazi rotaciju");
-            if(WIM.Get(CurrentlyActiveWeapon).hasBullet is true)
+            if(scriptableObject.hasBullet is true)
             {
-            Rotate(WIM.Get(CurrentlyActiveWeapon).BulletAim.gameObject);//namesti da se ocita objekat koji treba da se rotira
+            Rotate(scriptableObject.BulletAim);//namesti da se ocita objekat koji treba da se rotira
             }
         }
-        Debug.Log(""+scriptableObject.name);
+        check();
+        Debug.Log(AnimationP.gameObject.activeSelf);
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
         if(canAttack == true)
         {
-            WIM.Get(CurrentlyActiveWeapon).weapon.GetComponent<Animator>().SetBool("MouseClick", true);
-            switch (WIM.Get(CurrentlyActiveWeapon).hasBullet) 
+            AnimationP.SetBool("MouseClick", true);
+            switch (scriptableObject.hasBullet) 
             {
                 case true:
-                    InstantiateBullet(WIM.Get(CurrentlyActiveWeapon).Bullet);
-                    SetInputDelay(WIM.Get(CurrentlyActiveWeapon).speedOfShooting);
+                    InstantiateBullet(scriptableObject.Bullet);
+                    SetInputDelay(scriptableObject.speedOfShooting);
                 break;
                 case false:
                     //udari macem
@@ -97,9 +98,15 @@ public class Weapon : MonoBehaviour
             break;
         }
     }
+    void AfterShot(Rigidbody2D RB,Transform ObjectToDestroy)
+    {
+        RB.velocity = scriptableObject.Bullet.transform.right * scriptableObject.bulletSpeed;
+        Destroy(ObjectToDestroy.gameObject, scriptableObject.DestroyAfter);
+    }
     private void InstantiateBullet(GameObject Bullet)
     {
-        Instantiate(Bullet.transform, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.position, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.rotation);
+        var clonebullet = Instantiate(Bullet.transform, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.position, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.rotation);
+        AfterShot(clonebullet.GetComponent<Rigidbody2D>(),clonebullet);
     }
     void SetInputDelay(float Delay) //primeni delay
     {
