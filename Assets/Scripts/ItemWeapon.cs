@@ -14,13 +14,11 @@ public class ItemWeapon : ScriptableObject
 
     [Header("Weapon oriented data")]
     [Range(0, 100f)]public float damage = 0;
-    public GameObject weapon = null;
 
     [Header("Gun")]
     public bool hasBullet = false;
     public bool holdToShot = false;
     public GameObject Bullet = null;
-    public GameObject BulletAim = null;
     [Range(1,200f)]public float bulletSpeed = 0;
     [Range(0.1f,10)]public float DestroyAfter = 0;
     [Range(0,2f)]public float speedOfShooting = 0;

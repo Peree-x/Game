@@ -5,26 +5,28 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField][InspectorName("GlockData")] private ItemWeapon Glock;
     [SerializeField] private GameObject Aim;
+    [SerializeField] private WeaponItemManager WIM;
     [SerializeField] private bool DEBUGGING;
     [SerializeField] private bool DEBUGGINGERROR;
-    [SerializeField] private WeaponItemManager WIM;
     private ItemWeapon scriptableObject;
     private float playerx;
     private bool delayActive = false;
     private bool canAttack;
     private string CurrentlyActiveWeapon;
+    private GameObject CurrentlyActiveGameObject;
     private Animator AnimationP;
+    private GameObject[] WeaponArray;
     private void Awake()
     {
         check();
+        CurrentlyActiveGameObject = FindW(CurrentlyActiveWeapon);
         playerx = transform.localScale.x;
     }
     void Update()
     {
         scriptableObject = WIM.Get(CurrentlyActiveWeapon);
-        AnimationP = scriptableObject.weapon.GetComponent<Animator>();
+        AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
@@ -35,11 +37,23 @@ public class Weapon : MonoBehaviour
             Debuging("player trazi rotaciju");
             if(scriptableObject.hasBullet is true)
             {
-            Rotate(scriptableObject.BulletAim);//namesti da se ocita objekat koji treba da se rotira
+            Rotate(CurrentlyActiveGameObject.transform.Find("BulletAim").gameObject);//namesti da se ocita objekat koji treba da se rotira
             }
         }
         check();
-        Debug.Log(AnimationP.gameObject.activeSelf);
+        Debug.Log(FindW(CurrentlyActiveWeapon).name);
+    }
+    GameObject FindW (string ActiveWeapon)
+    {
+       WeaponArray = GameObject.FindGameObjectsWithTag("Weapon");
+       foreach(GameObject x in WeaponArray)
+       {
+           if(x.name == CurrentlyActiveWeapon)
+           {
+               return x;
+           }
+       }
+       return null;
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
@@ -49,7 +63,7 @@ public class Weapon : MonoBehaviour
             switch (scriptableObject.hasBullet) 
             {
                 case true:
-                    InstantiateBullet(scriptableObject.Bullet);
+                    InstantiateBullet(scriptableObject.Bullet, CurrentlyActiveGameObject.transform.Find("BulletAim"));
                     SetInputDelay(scriptableObject.speedOfShooting);
                 break;
                 case false:
@@ -100,12 +114,12 @@ public class Weapon : MonoBehaviour
     }
     void AfterShot(Rigidbody2D RB,Transform ObjectToDestroy)
     {
-        RB.velocity = scriptableObject.Bullet.transform.right * scriptableObject.bulletSpeed;
+        RB.velocity = ObjectToDestroy.right * scriptableObject.bulletSpeed;
         Destroy(ObjectToDestroy.gameObject, scriptableObject.DestroyAfter);
     }
-    private void InstantiateBullet(GameObject Bullet)
+    private void InstantiateBullet(GameObject Bullet,Transform BulletAim)
     {
-        var clonebullet = Instantiate(Bullet.transform, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.position, WIM.Get(CurrentlyActiveWeapon).BulletAim.transform.rotation);
+        var clonebullet = Instantiate(Bullet.transform, BulletAim.position, BulletAim.rotation);
         AfterShot(clonebullet.GetComponent<Rigidbody2D>(),clonebullet);
     }
     void SetInputDelay(float Delay) //primeni delay

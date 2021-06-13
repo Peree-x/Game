@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glock
       objectReference: {fileID: 0}
+    - target: {fileID: 2029372440935009378, guid: a0ce9504f6d0fd24ea0581aaa00934a1, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 2029372440935009390, guid: a0ce9504f6d0fd24ea0581aaa00934a1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -707,11 +711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f15e488f5f857745ae578d02b682e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Glock: {fileID: 11400000, guid: cbfe2de7209f3c947a8b9883a0432b1f, type: 2}
   Aim: {fileID: 2024087232}
+  WIM: {fileID: 256698982}
   DEBUGGING: 0
   DEBUGGINGERROR: 1
-  WIM: {fileID: 256698982}
 --- !u!1 &1247279736
 GameObject:
   m_ObjectHideFlags: 0
