@@ -12,13 +12,7 @@ using UnityEngine;
              m_ItemMap.Add(item.name, item);
          }
      }
-     
      public ItemWeapon Get(string name){
-         if (name == "None")
-         {
-             return null;
-         }
-         else
          return m_ItemMap[name];
      }
  }

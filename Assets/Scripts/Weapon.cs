@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        CurrentlyActiveGameObject = Inventory.ActiveWeaponG;
+        //CurrentlyActiveGameObject = Inventory.ActiveWeaponG;
         scriptableObject = WIM.Get(CurrentlyActiveWeapon);
         AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))

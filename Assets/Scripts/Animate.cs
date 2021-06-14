@@ -32,7 +32,6 @@ public class Animate : MonoBehaviour
         {
             DebugingError("Vise objekata u ruci");
         }
-        Debug.Log(SOS.typeofw.ToString());
     }
     bool ifNothingsActive(GameObject Target)
     {

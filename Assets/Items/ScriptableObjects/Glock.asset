@@ -17,11 +17,10 @@ MonoBehaviour:
   description: Puc puc
   icon: {fileID: 0}
   damage: 20
-  weapon: {fileID: 2029372440935009378, guid: a0ce9504f6d0fd24ea0581aaa00934a1, type: 3}
+  typeofw: 0
   hasBullet: 1
   holdToShot: 0
   Bullet: {fileID: 6763343487547179117, guid: bf6b11eab9c8ce646bacbc224deb969b, type: 3}
-  BulletAim: {fileID: 1521312506509791503, guid: 6bd9200b382fa3e4c9385422de046927, type: 3}
   bulletSpeed: 20
   DestroyAfter: 5
   speedOfShooting: 0.3
