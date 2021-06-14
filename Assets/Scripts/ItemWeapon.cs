@@ -14,6 +14,8 @@ public class ItemWeapon : ScriptableObject
 
     [Header("Weapon oriented data")]
     [Range(0, 100f)]public float damage = 0;
+    public enum TypeOFW {Pistol, Gun, Sword};
+    public TypeOFW typeofw;
 
     [Header("Gun")]
     public bool hasBullet = false;

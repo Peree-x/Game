@@ -9,22 +9,22 @@ public class Weapon : MonoBehaviour
     [SerializeField] private WeaponItemManager WIM;
     [SerializeField] private bool DEBUGGING;
     [SerializeField] private bool DEBUGGINGERROR;
-    private ItemWeapon scriptableObject;
+    [HideInInspector] public ItemWeapon scriptableObject;
     private float playerx;
     private bool delayActive = false;
     private bool canAttack;
-    private string CurrentlyActiveWeapon;
+    [HideInInspector]public string CurrentlyActiveWeapon;
     private GameObject CurrentlyActiveGameObject;
     private Animator AnimationP;
     private GameObject[] WeaponArray;
     private void Awake()
     {
         check();
-        CurrentlyActiveGameObject = FindW(CurrentlyActiveWeapon);
         playerx = transform.localScale.x;
     }
     void Update()
     {
+        CurrentlyActiveGameObject = FindW(CurrentlyActiveWeapon);
         scriptableObject = WIM.Get(CurrentlyActiveWeapon);
         AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))
@@ -41,7 +41,6 @@ public class Weapon : MonoBehaviour
             }
         }
         check();
-        Debug.Log(FindW(CurrentlyActiveWeapon).name);
     }
     GameObject FindW (string ActiveWeapon)
     {
@@ -78,23 +77,52 @@ public class Weapon : MonoBehaviour
     }
     void check() //proverava da li je weapon u ruci i ako jeste onda proverava koj je u pitanju i postavlja da moze da udara
     {
-        for (int i = 0; i < Aim.transform.childCount; i++)
-        {
-            if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
+        Debug.Log("function called");
+        if(Aim.transform.childCount > 0)
+        { 
+            Debug.Log("veci od nule xd");
+            for (int i = 0; i < Aim.transform.childCount; i++)
             {
-                CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
-                
-                if (delayActive != true) //ako delay nije trenutno aktivan onda je canattack true
+                Debug.Log("trying");
+                if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
                 {
-                    canAttack = true;
+                    Debug.Log("nesto je aktivno");
+                    CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
+                    
+                    if (delayActive != true) //ako delay nije trenutno aktivan onda je canattack true
+                    {
+                        canAttack = true;
+                    }
                 }
-                break;
-            }
-            else //ovo pravi bugove ako ih ima vise smisli bolji nacin
-            {
-                canAttack = false;
+                else
+                {
+                    Debug.Log("else");
+                    if(ifNothingsActive(Aim) == true)
+                    {
+                        Debug.Log("nothings active true");
+                        Debuging("not active");
+                        CurrentlyActiveWeapon = "None";
+                        canAttack = false;
+                    }
+                }
             }
         }
+        else 
+        {
+            Debug.Log("Nema dece xd");
+            CurrentlyActiveWeapon = "None";
+        }
+    }
+        bool ifNothingsActive(GameObject Target)
+    {
+        foreach(GameObject x in Target.transform)
+        {
+            if(x.activeSelf == true)
+            {
+                return false;
+            }
+        }
+        return true;
     }
     void Rotate(GameObject ToRotate)
     {

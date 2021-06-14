@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class MoveWIthPlayer : MonoBehaviour
 {
-    public Transform player;
-    public float smooth = 0.125f;
-    public Vector3 offset;
+    private Transform player;
+    [SerializeField]private float smooth = 0.125f;
+    [SerializeField]private Vector3 offset;
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void FixedUpdate()
     {

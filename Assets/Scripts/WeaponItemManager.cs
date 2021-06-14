@@ -14,6 +14,11 @@ using UnityEngine;
      }
      
      public ItemWeapon Get(string name){
+         if (name == "None")
+         {
+             return null;
+         }
+         else
          return m_ItemMap[name];
      }
  }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f86c588db0dabf4e8eca17e0a696cc8, type: 3}
+  m_Name: Katana
+  m_EditorClassIdentifier: 
+  id: 2
+  name: Katana
+  description: Slice me senpai >.<
+  icon: {fileID: 0}
+  damage: 50
+  typeofw: 2
+  hasBullet: 0
+  holdToShot: 0
+  Bullet: {fileID: 0}
+  bulletSpeed: 0
+  DestroyAfter: 0
+  speedOfShooting: 0
+  SpeedOfAttack: 0.5
