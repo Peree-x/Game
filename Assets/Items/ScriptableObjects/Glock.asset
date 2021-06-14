@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   name: Glock
   description: Puc puc
-  icon: {fileID: 0}
+  icon: {fileID: 5511354458097190376, guid: bc774e455d171534587b7f09da1fd113, type: 3}
   damage: 20
   typeofw: 0
   hasBullet: 1
