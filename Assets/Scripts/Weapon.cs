@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool DEBUGGING;
     [SerializeField] private bool DEBUGGINGERROR;
     [HideInInspector] public ItemWeapon scriptableObject;
+    [SerializeField] private Inventory Inventory; 
     private float playerx;
     private bool delayActive = false;
     private bool canAttack;
@@ -24,7 +25,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        CurrentlyActiveGameObject = FindW(CurrentlyActiveWeapon);
+        CurrentlyActiveGameObject = Inventory.ActiveWeaponG;
         scriptableObject = WIM.Get(CurrentlyActiveWeapon);
         AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))
