@@ -16,10 +16,32 @@ public class WUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text3;
     bool[] Populated;
     bool[] bol;
+    string[] x;
+    string[] y;
     private Sprite icon;
+    private void Awake() //Svaki gameobject ce da zabelezi na pocetku
+    {
+        AssignX();
+        x = y;
+    }
     private void Update()
     {
         CheckSetGo();
+        AssignX();
+        if(x != y)
+        {
+            for (int i = 0; i < y.Length; i++)
+            {
+                if(x[i]!=y[i])
+                {
+                    if(x[i] == null)
+                    {
+                        remove(wim.Get(y[i]).typeofw.ToString());
+                    }
+                }
+            }
+            x=y;
+        }
 //        for(int i = 0; i > Populated.Length ; i++)
 //        {
 //            if(Populated[i] != true)
@@ -29,19 +51,19 @@ public class WUI : MonoBehaviour
 //        }
 //        proveri dali je idalje true i ako jeste onda mu ne radi nista a ako nije onda upotrebi funkciju remove();
     }
-    void remove(int i)
+    void remove(string i)
     {
         switch(i)
         {
-            case 0:
+            case "Sword":
                 //image remove
                 text1.text = null;
             break;
-            case 1:
+            case "Pistol":
                 //image remove
                 text2.text = null;
             break;
-            case 2:
+            case "Gun":
                 //image remove
                 text3.text = null;
             break;
@@ -80,6 +102,13 @@ public class WUI : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+    void AssignX()
+    {
+        for(int i = 0; i>GameObject.FindWithTag("Aim").transform.childCount;i++)
+        {
+            x[i] = GameObject.FindWithTag("Aim").transform.GetChild(i).name;
         }
     }
 }
