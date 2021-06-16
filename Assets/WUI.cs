@@ -14,34 +14,49 @@ public class WUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text1;
     [SerializeField] private TextMeshProUGUI text2;
     [SerializeField] private TextMeshProUGUI text3;
-    bool[] Populated;
-    bool[] bol;
-    string[] x;
-    string[] y;
+    bool Populated1;
+    bool Populated2;
+    bool Populated3;
     private Sprite icon;
-    private void Awake() //Svaki gameobject ce da zabelezi na pocetku
+   // string[] x;
+   // string[] y;
+    //private int aimChildCount;
+    void Awake() //Svaki gameobject ce da zabelezi na pocetku
     {
-        AssignX();
-        x = y;
+        Populated1 = false;
+        Populated2 = false;
+        Populated3 = false;
+        //aimChildCount = GameObject.FindWithTag("Aim").transform.childCount;
+      //  AssignX(aimChildCount);
+       // x = y;
     }
-    private void Update()
+    void Update()
     {
         CheckSetGo();
-        AssignX();
-        if(x != y)
-        {
-            for (int i = 0; i < y.Length; i++)
-            {
-                if(x[i]!=y[i])
-                {
-                    if(x[i] == null)
-                    {
-                        remove(wim.Get(y[i]).typeofw.ToString());
-                    }
-                }
-            }
-            x=y;
-        }
+       // AssignX(aimChildCount);
+    //    Debug.Log("childcount je "+aimChildCount);
+    //    Debug.Log("xd1");
+    //    Debug.Log(aimChildCount);
+    //    for(int i = 0; i>aimChildCount;i++)
+    //    {
+    //        x[i] = GameObject.FindWithTag("Aim").transform.GetChild(i).name;
+    //        Debug.Log("x je"+x[i]);
+    //        Debug.Log("xd2");
+    //    }
+   //     if(x != y)
+   //     {
+   //         for (int i = 0; i < y.Length; i++)
+   //         {
+   //             if(x[i]!=y[i])
+   //             {
+   //                 if(x[i] == null)
+   //                 {
+   //                     remove(wim.Get(y[i]).typeofw.ToString());
+   //                 }
+   //             }
+   //         }
+   //         x=y;
+   //     }
 //        for(int i = 0; i > Populated.Length ; i++)
 //        {
 //            if(Populated[i] != true)
@@ -51,25 +66,25 @@ public class WUI : MonoBehaviour
 //        }
 //        proveri dali je idalje true i ako jeste onda mu ne radi nista a ako nije onda upotrebi funkciju remove();
     }
-    void remove(string i)
-    {
-        switch(i)
-        {
-            case "Sword":
-                //image remove
-                text1.text = null;
-            break;
-            case "Pistol":
-                //image remove
-                text2.text = null;
-            break;
-            case "Gun":
-                //image remove
-                text3.text = null;
-            break;
-        }
-
-    }
+    //void remove(string i)
+    //{
+    //    switch(i)
+    //    {
+    //        case "Sword":
+    //            //image remove
+    //            text1.text = null;
+    //        break;
+    //        case "Pistol":
+    //            //image remove
+    //            text2.text = null;
+    //        break;
+    //        case "Gun":
+    //            //image remove
+    //            text3.text = null;
+    //        break;
+    //    }
+//
+    //}
     void CheckSetGo()
     {
         foreach (Transform Item in GameObject.FindWithTag("Aim").transform)
@@ -80,13 +95,13 @@ public class WUI : MonoBehaviour
                 {
                     case "Sword":
                         //change icon wim.Get(Item.name).icon;
-                        Populated[0] = true;
+                        Populated1 = true;
                         text1.text = wim.Get(Item.name).name;
 
                     break;
                     case "Pistol":
                         //change icon wim.Get(Item.name).icon;
-                        Populated[1] = true;
+                        Populated2 = true;
                         text2.text = wim.Get(Item.name).name;
                         Debug.Log("pistol");
                         //Stavi description ako bude hover 
@@ -94,7 +109,7 @@ public class WUI : MonoBehaviour
                     break;
                     case "Gun":
                         //change icon wim.Get(Item.name).icon;
-                        Populated[2] = true;
+                        Populated3 = true;
                         text3.text = wim.Get(Item.name).name;
                     break;
                     default:
@@ -102,13 +117,6 @@ public class WUI : MonoBehaviour
                     break;
                 }
             }
-        }
-    }
-    void AssignX()
-    {
-        for(int i = 0; i>GameObject.FindWithTag("Aim").transform.childCount;i++)
-        {
-            x[i] = GameObject.FindWithTag("Aim").transform.GetChild(i).name;
         }
     }
 }
