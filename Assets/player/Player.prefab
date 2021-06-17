@@ -123,6 +123,12 @@ MonoBehaviour:
   text1: {fileID: 9215361330288203212}
   text2: {fileID: 8562438360149279370}
   text3: {fileID: 1030957769192803853}
+  Populated1: 0
+  Populated2: 0
+  Populated3: 0
+  GO1: {fileID: 0}
+  GO2: {fileID: 0}
+  GO3: {fileID: 0}
 --- !u!1 &1494257681963852748
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4441110980735113034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6006363070990438808}
+        m_TargetAssemblyTypeName: WUI, Assembly-CSharp
+        m_MethodName: holdFromHand
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: go3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4427708658007782931
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +882,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4089465146983734713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6006363070990438808}
+        m_TargetAssemblyTypeName: WUI, Assembly-CSharp
+        m_MethodName: holdFromHand
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: go2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4501354814067834323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1355,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4195186063525247597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6006363070990438808}
+        m_TargetAssemblyTypeName: WUI, Assembly-CSharp
+        m_MethodName: holdFromHand
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: go1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8872800022148042119
 GameObject:
   m_ObjectHideFlags: 0
