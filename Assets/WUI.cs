@@ -31,6 +31,18 @@ public class WUI : MonoBehaviour
     void Update()
     {
         CheckSetGo();
+        if(Input.GetKeyDown("1"))
+        {
+            holdFromHand("go1");
+        }
+        if(Input.GetKeyDown("2"))
+        {
+            holdFromHand("go2");
+        }
+        if(Input.GetKeyDown("3"))
+        {
+            holdFromHand("go3");
+        }
     }
     void CheckSetGo()
     {
