@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private GameObject Aim;
+    private GameObject Aim;
     [SerializeField] private WeaponItemManager WIM;
     [SerializeField] private bool DEBUGGING;
     [SerializeField] private bool DEBUGGINGERROR;
     [HideInInspector] public ItemWeapon scriptableObject;
-    [SerializeField] private Inventory Inventory; 
     private float playerx;
     private bool delayActive = false;
     private bool canAttack;
@@ -18,20 +17,41 @@ public class Weapon : MonoBehaviour
     private GameObject CurrentlyActiveGameObject;
     private Animator AnimationP;
     private GameObject[] WeaponArray;
+    private bool exist;
     private void Awake()
     {
+        Aim = GameObject.FindWithTag("Aim");
         check();
         playerx = transform.localScale.x;
     }
     void Update()
     {
-        //CurrentlyActiveGameObject = Inventory.ActiveWeaponG;
-        scriptableObject = WIM.Get(CurrentlyActiveWeapon);
-        AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
-        if (Input.GetMouseButtonDown(0))
+            Debug.Log(CurrentlyActiveWeapon);
+        CurrentlyActiveGameObject = GameObject.FindWithTag("Weapon");
+
+        if(CurrentlyActiveWeapon != null && CurrentlyActiveWeapon != "None")
+        {
+            exist = true;
+        }
+        else {
+            exist = false;
+        }
+
+        if(exist == true)
+        {
+            scriptableObject = WIM.Get(CurrentlyActiveWeapon);
+        }
+
+        if(CurrentlyActiveGameObject != null)
+        {
+            AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
+        }
+
+        if (Input.GetMouseButton(0) == true)
         {
             Attack();
         }
+
         if(transform.localScale.x != playerx) //proverava da li se rotacija playera promenila i ako jeste onda rotira bulletAim
         {
             playerx = transform.localScale.x;
@@ -58,7 +78,7 @@ public class Weapon : MonoBehaviour
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
         if(canAttack == true)
-        {
+            {
             AnimationP.SetBool("MouseClick", true);
             switch (scriptableObject.hasBullet) 
             {
@@ -69,12 +89,12 @@ public class Weapon : MonoBehaviour
                 case false:
                     //udari macem
                 break;
+                }
             }//ako je hasbullet true pucace bullet a ako nije onda ce udariti macem
-        }
-        else
-        {
-            Debuging("CanAttack is false");
-        }
+            else
+            {
+                Debuging("CanAttack is false");
+            }
     }
     void check() //proverava da li je weapon u ruci i ako jeste onda proverava koj je u pitanju i postavlja da moze da udara
     {
