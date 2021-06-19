@@ -26,7 +26,6 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-            Debug.Log(CurrentlyActiveWeapon);
         CurrentlyActiveGameObject = GameObject.FindWithTag("Weapon");
 
         if(CurrentlyActiveWeapon != null && CurrentlyActiveWeapon != "None")
@@ -45,35 +44,38 @@ public class Weapon : MonoBehaviour
         if(CurrentlyActiveGameObject != null)
         {
             AnimationP = CurrentlyActiveGameObject.GetComponent<Animator>();
-        }
-
-        if (Input.GetMouseButton(0) == true)
-        {
-            Attack();
-        }
-
-        if(transform.localScale.x != playerx) //proverava da li se rotacija playera promenila i ako jeste onda rotira bulletAim
-        {
-            playerx = transform.localScale.x;
-            Debuging("player trazi rotaciju");
-            if(scriptableObject.hasBullet is true)
+            if(transform.localScale.x != playerx) //proverava da li se rotacija playera promenila i ako jeste onda rotira bulletAim
             {
-            Rotate(CurrentlyActiveGameObject.transform.Find("BulletAim").gameObject);//namesti da se ocita objekat koji treba da se rotira
+                playerx = transform.localScale.x;
+                Debuging("player trazi rotaciju");
+                if(scriptableObject.hasBullet is true)
+                {
+                Rotate(CurrentlyActiveGameObject.transform.Find("BulletAim").gameObject);//namesti da se ocita objekat koji treba da se rotira
+                }
             }
         }
+        if(scriptableObject != null)
+        {
+            if (Input.GetMouseButton(0) == true)
+            {
+                Attack();
+            }
+            if(scriptableObject.holdToShot == true)
+            {
+                if (Input.GetMouseButton(0) == true)
+                {
+                    Attack();
+                }
+            }
+            else{
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Attack();
+                }
+            }
+        }
+
         check();
-    }
-    GameObject FindW (string ActiveWeapon)
-    {
-       WeaponArray = GameObject.FindGameObjectsWithTag("Weapon");
-       foreach(GameObject x in WeaponArray)
-       {
-           if(x.name == CurrentlyActiveWeapon)
-           {
-               return x;
-           }
-       }
-       return null;
     }
     void Attack() //ako je canAttack true onda pokreni animaciju i pokreni udarac
     {
@@ -98,16 +100,12 @@ public class Weapon : MonoBehaviour
     }
     void check() //proverava da li je weapon u ruci i ako jeste onda proverava koj je u pitanju i postavlja da moze da udara
     {
-        Debug.Log("function called");
         if(Aim.transform.childCount > 0)
         { 
-            Debug.Log("veci od nule xd");
             for (int i = 0; i < Aim.transform.childCount; i++)
             {
-                Debug.Log("trying");
                 if (Aim.transform.GetChild(i).gameObject.activeSelf == true) //ako je neki weapon aktivan pribelezi koji je i ukulji canAttack
                 {
-                    Debug.Log("nesto je aktivno");
                     CurrentlyActiveWeapon = Aim.transform.GetChild(i).name;
                     
                     if (delayActive != true) //ako delay nije trenutno aktivan onda je canattack true
@@ -117,12 +115,10 @@ public class Weapon : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("else");
-                    if(ifNothingsActive(Aim) == true)
+                    if(GameObject.FindWithTag("Weapon"))
                     {
-                        Debug.Log("nothings active true");
                         Debuging("not active");
-                        CurrentlyActiveWeapon = "None";
+                        CurrentlyActiveWeapon = null;
                         canAttack = false;
                     }
                 }
@@ -130,20 +126,8 @@ public class Weapon : MonoBehaviour
         }
         else 
         {
-            Debug.Log("Nema dece xd");
             CurrentlyActiveWeapon = "None";
         }
-    }
-        bool ifNothingsActive(GameObject Target)
-    {
-        foreach(GameObject x in Target.transform)
-        {
-            if(x.activeSelf == true)
-            {
-                return false;
-            }
-        }
-        return true;
     }
     void Rotate(GameObject ToRotate)
     {

@@ -469,12 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d8d0ff292e66a4da7b863dd885f794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfWeapon: none
-  Aim: {fileID: 1707733549375277894}
+  weaponItemManager: {fileID: 5880368543603978438}
   DEBUGING: 0
   DEBUGINGERRORS: 1
-  WeaponS: {fileID: 1707733548562073332}
-  SOS: {fileID: 0}
+  TypeOfWeapon: none
 --- !u!114 &6980359959644316126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,12 +499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f15e488f5f857745ae578d02b682e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Aim: {fileID: 1707733549375277894}
-  WIM: {fileID: 0}
+  WIM: {fileID: 5880368543603978438}
   DEBUGGING: 0
   DEBUGGINGERROR: 1
   scriptableObject: {fileID: 0}
-  Inventory: {fileID: 0}
   CurrentlyActiveWeapon: 
 --- !u!1 &1707733548602306558
 GameObject:

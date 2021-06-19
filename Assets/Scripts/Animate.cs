@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class Animate : MonoBehaviour
 {
-    [HideInInspector] public string TypeOfWeapon = "none";
-    [SerializeField]private GameObject Aim;
+    [SerializeField] private WeaponItemManager weaponItemManager;
     [SerializeField] private bool DEBUGING = false;
     [SerializeField] private bool DEBUGINGERRORS = true;
-    [SerializeField] Weapon WeaponS;
-    [SerializeField] ItemWeapon SOS;//treba da bude itemmanager
+    [HideInInspector] public string TypeOfWeapon = "none";
+    private GameObject Aim;
+    private ItemWeapon ScriptableObject;
     private Animator anim;
-    private string CurrentlyActiveWeapon = "None";
+    private string CurrentlyActiveWeapon;
     private void Awake()
     {
         anim = this.GetComponent<Animator>();
+        Aim = GameObject.FindWithTag("Aim");
     }
     void Update()
     {
-        CurrentlyActiveWeapon = WeaponS.CurrentlyActiveWeapon;
+        if(GameObject.FindWithTag("Weapon") != null)
+        {
+        CurrentlyActiveWeapon = GameObject.FindWithTag("Weapon").name;
+        ScriptableObject = weaponItemManager.Get(CurrentlyActiveWeapon);
+        }
+        else 
+        {
+            CurrentlyActiveWeapon = null;
+            ScriptableObject = null;
+        }
         switch (Aim.transform.childCount)
         {
             case 0:
@@ -27,10 +37,6 @@ public class Animate : MonoBehaviour
             case 1:
                 ChildCheckActive();
             break;
-        }
-        if(Aim.transform.childCount > 1)
-        {
-            DebugingError("Vise objekata u ruci");
         }
     }
     bool ifNothingsActive(GameObject Target)
@@ -46,38 +52,29 @@ public class Animate : MonoBehaviour
     }
     void ChildCheckActive() //proveri za svakog child njegovo stanje (Da li je enable ili disable) i ako je enable nadji mu ime i pokreni animaciju za njega
     {
-        if(Aim.transform.childCount > 0)
-        {
-            for (int i = 0; i < Aim.transform.childCount; i++)
+        if (GameObject.FindWithTag("Weapon") != null)//proveri da li je nesto aktivno
+        {        
+            switch (ScriptableObject.typeofw.ToString())
             {
-                if (Aim.transform.GetChild(i).gameObject.activeSelf == true)//proveri da li je nesto aktivno
-                {
-                    //if (Aim.transform.GetChild(i).name == CurrentlyActiveWeapon)// ako jeste onda proveri da li je isti kao u drugoj scripti
-                    //{              
-                        anim.SetBool("Pistol", true);//i ako jeste onda upali animaciju
-                        Debug.Log("Jeste ez");
-                    //}
-                    //else// ako nije onda pokazi debugging error
-                    //{
-                    //    DebugingError("Druga provera neuspesna, weapon nije pronadjen u bazi podataka");
-                    //}
-                }
-                else
-                {
-                    if(ifNothingsActive(Aim) == true)//ako taj trenutni predmet nije aktivan onda proveri da li su svi neaktivni
-                    {
-                        Debuging("not active");//ako su svi neaktivni onda iskljuci svaku animaciju i stavi default type weapon
-                        TypeOfWeapon = "None";
-                        if(anim.GetBool("Pistol") is true || anim.GetBool("Gun") is true || anim.GetBool("Sword") is true )
-                        {
-                            HoldNothing();
-                        }
-                    }
-                }
-            }
+                case "Pistol":
+                    anim.SetBool("Pistol", true);
+                break;
+                case "Gun":
+                    anim.SetBool("Gun", true);
+                break;
+                case "Sword":
+                    anim.SetBool("Sword", true);
+                break;
+                default:
+                break;
+            }   
         }
         else
-        Debug.Log("Nije Veci od nule anim");
+        {
+            anim.SetBool("Pistol", false);
+            anim.SetBool("Gun", false);
+            anim.SetBool("Sword", false);
+        }
     }
     void Debuging(string obavestava)
     {
